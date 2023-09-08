@@ -1,12 +1,7 @@
-FROM node:17-alpine as builder
-WORKDIR /app
-COPY ./package.json /app
+FROM node:alpine AS development
+ENV NODE_ENV development
+WORKDIR /react-app
+COPY ./package.json /react-app
 RUN npm install
 COPY . .
-RUN npm start
-
-FROM nginx:1.19.0
-WORKDIR /usr/share/nginx/html
-RUN rm -rf ./*
-COPY --from=builder /app/html
-ENTRYPOINT ["nginx", "-g", "daemon off;"]
+RUN npm start 
