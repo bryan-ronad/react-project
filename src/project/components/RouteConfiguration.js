@@ -2,7 +2,6 @@ import { Routes, Route } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoute";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
-import Logout from "../../components/Logout";
 import List from "../pages/List";
 import FoodList from "../pages/FoodList";
 import Prices from "../pages/Prices";
@@ -13,7 +12,6 @@ const RouteConfiguration = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="login" element={<Login />} />
-        <Route path="logout" element={<Logout />} />
         <Route path="list" element={<List />} />
         <Route path="category/:categoryName" element={<FoodList />} />
         <Route path="price" element={<ProtectedRoute component={Prices} />} />
